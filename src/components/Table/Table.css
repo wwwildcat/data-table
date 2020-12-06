@@ -1,0 +1,28 @@
+.Table {
+	margin: auto;
+}
+
+.Table__cell {
+	padding: 5px 15px;
+
+	cursor: pointer;
+}
+
+.Table__cell_header {
+	position: relative;
+
+	padding-right: 20px;
+
+	font-size: 20px;
+}
+
+.Table__icon {
+	position: absolute;
+	top: 11px;
+
+	margin-left: 5px;
+}
+
+.Table__icon_type_up {
+	transform: rotate(180deg);
+}

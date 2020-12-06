@@ -1,0 +1,18 @@
+.Flex-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+
+	max-width: 650px;
+	margin: 15px auto;
+}
+
+.Flex-container_type_header {
+	justify-content: center;
+}
+
+.Flex-container_type_form {
+	justify-content: space-evenly;
+}

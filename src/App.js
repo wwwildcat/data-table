@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import React from 'react';
+import { connect } from 'react-redux';
+import { ReactComponent as Preloader } from '../src/components/svg/Preloader.svg';
+import Header from './components/Header/Header';
+import Panel from './components/Panel/Panel';
+import Form from './components/Form/Form';
+import Pager from './components/Pager/Pager';
+import Table from './components/Table/Table';
+import Card from './components/Card/Card';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const mapStateToProps = (state) => ({
+    loadingStatus: state.loadingStatus,
+    currentRecord: state.currentRecord,
+	showForm: state.showForm,
+});
 
-export default App;
+const App = ({ currentRecord, loadingStatus, showForm }) => (
+    <div className="App" data-testid="app">
+        <Header />
+        {loadingStatus === 'loading' &&
+            <>
+                <Preloader data-testid="preloader" className="Icon-preloader"/>
+                <span>Загрузка...</span>
+            </>}
+        {loadingStatus === 'error' && <div>Ошибка загрузки данных</div>}
+        {loadingStatus === 'complete' &&
+            <>
+                <Panel />
+                {showForm && <Form />}
+                <Pager />
+                <Table />
+                {currentRecord && <Card record={currentRecord} />}
+            </>}
+    </div>
+);
+
+export default connect(mapStateToProps)(App);

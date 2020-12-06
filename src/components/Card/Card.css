@@ -1,0 +1,16 @@
+.Card {
+	max-width: 650px;
+
+	margin: auto;
+
+	text-align: left;
+}
+
+.Card__text {
+	margin: 5px;
+}
+
+.Card__textarea {
+	width: 450px;
+	height: 100px;
+}

@@ -1,0 +1,9 @@
+.Pager {
+	margin: 10px 0;
+}
+
+.Pager__input {
+	width: 35px;
+
+	padding: 3px;
+}
