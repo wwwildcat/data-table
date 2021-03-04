@@ -13,6 +13,7 @@ export const initialState = {
 	sortProp: 'none',
 	sortOrder: true, // ascending - true, descending - false
 	showForm: false,
+	filterOnClick: true
 };
 const store = createStore(reducer, initialState, applyMiddleware(thunk));
 

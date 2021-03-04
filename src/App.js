@@ -21,9 +21,9 @@ const App = ({ currentRecord, loadingStatus, showForm }) => (
         {loadingStatus === 'loading' &&
             <>
                 <Preloader data-testid="preloader" className="Icon-preloader"/>
-                <span>Загрузка...</span>
+                <span>Loading...</span>
             </>}
-        {loadingStatus === 'error' && <div>Ошибка загрузки данных</div>}
+        {loadingStatus === 'error' && <div>Loading error</div>}
         {loadingStatus === 'complete' &&
             <>
                 <Panel />

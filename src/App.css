@@ -18,6 +18,8 @@
     background-color: lightslategrey;
     color: black;
 
+    cursor: pointer;
+
     font-size: 15px;
 }
 

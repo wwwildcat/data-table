@@ -6,6 +6,7 @@ import {
 	SET_SORT_PROP,
 	TOGGLE_SORT_ORDER,
 	SORT_DATA,
+	TOGGLE_FILTER_EVENT,
 	FILTER_DATA,
 	TOGGLE_FORM,
 	ADD_RECORD,
@@ -39,10 +40,12 @@ export function reducer (state, action) {
 		};
 
 		case GET_CURRENT_PAGE_DATA:
+			const currentPage = action.payload || state.currentPage;
+
 			return {
 				...state,
-				currentPage: action.payload || state.currentPage,
-				pageData: pageUtil(state.currentData, action.payload || state.currentPage),
+				currentPage: currentPage,
+				pageData: pageUtil(state.currentData, currentPage),
 			};
 
 		case SET_SORT_PROP:
@@ -65,13 +68,21 @@ export function reducer (state, action) {
 				pageData: pageUtil(state.currentData, state.currentPage),
 			};
 
-		case FILTER_DATA:
+		case TOGGLE_FILTER_EVENT:
 			return {
 				...state,
-				currentData: filterUtil(state.data, action.payload.toLowerCase()),
+				filterOnClick: !state.filterOnClick,
+			};
+
+		case FILTER_DATA:
+			const filteredData = filterUtil(state.data, action.payload.toLowerCase());
+
+			return {
+				...state,
+				currentData: filteredData,
 				currentPage: 1,
-				lastPage: lastPageUtil(filterUtil(state.data, action.payload.toLowerCase())),
-				pageData: pageUtil(filterUtil(state.data, action.payload.toLowerCase()), 1),
+				lastPage: lastPageUtil(filteredData),
+				pageData: pageUtil(filteredData, 1),
 				currentRecord: null,
 				sortProp: 'none',
 			};
@@ -83,13 +94,15 @@ export function reducer (state, action) {
 			};
 
 		case ADD_RECORD:
+			const newData = [action.payload].concat(state.data);
+
 			return {
 				...state,
-				data: [action.payload].concat(state.data),
-				currentData: [action.payload].concat(state.data),
+				data: newData,
+				currentData: newData,
 				currentPage: 1,
-				lastPage: lastPageUtil([action.payload].concat(state.data)),
-				pageData: pageUtil([action.payload].concat(state.data), 1),
+				lastPage: lastPageUtil(newData),
+				pageData: pageUtil(newData, 1),
 				currentRecord: null,
 				sortProp: 'none',
 				showForm: false,

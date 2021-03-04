@@ -5,11 +5,11 @@ export const headerData = [
 	},
 	{
 		id: 'firstName',
-		text: 'Имя'
+		text: 'First name'
 	},
 	{
 		id: 'lastName',
-		text: 'Фамилия'
+		text: 'Last name'
 	},
 	{
 		id: 'email',
@@ -17,7 +17,7 @@ export const headerData = [
 	},
 	{
 		id: 'phone',
-		text: 'Телефон'
+		text: 'Phone number'
 	},
 ];
 
@@ -28,11 +28,11 @@ export const formData = [
 	},
 	{
 		id: 'firstName',
-		text: 'Имя:'
+		text: 'First name:'
 	},
 	{
 		id: 'lastName',
-		text: 'Фамилия:'
+		text: 'Last name:'
 	},
 	{
 		id: 'email',
@@ -40,26 +40,26 @@ export const formData = [
 	},
 	{
 		id: 'phone',
-		text: 'Телефон:'
+		text: 'Phone number:'
 	},
 	{
 		id: 'streetAddress',
-		text: 'Адрес:'
+		text: 'Residence address:'
 	},
 	{
 		id: 'city',
-		text: 'Город:'
+		text: 'City:'
 	},
 	{
 		id: 'state',
-		text: 'Штат:'
+		text: 'State:'
 	},
 	{
 		id: 'zip',
-		text: 'Индекс:'
+		text: 'ZIP code:'
 	},
 	{
 		id: 'description',
-		text: 'Описание:'
+		text: 'Description:'
 	},
 ];

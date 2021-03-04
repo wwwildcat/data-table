@@ -20,6 +20,7 @@ const mapDispatchToProps = (dispatch) => ({
 		}
 		dispatch(sortData());
 	},
+
 	handleTableClick: (obj) => {
 		dispatch(setCurrentRecord(obj));
 	}
@@ -27,28 +28,36 @@ const mapDispatchToProps = (dispatch) => ({
 
 const Table = ({ handleTableHeaderClick, handleTableClick, pageData, sortProp, sortOrder }) => (
 	<table className="Table" data-testid="table">
-		<tr>
-			{headerData.map((item, index) =>
-				<td
-					className="Table__cell Table__cell_header"
-					data-testid={`table-header-${item.id}`}
-					key={index}
-					onClick={() => handleTableHeaderClick(item.id, sortProp)}
-					id={item.id}
-				>
-					{item.text}
-					{sortProp === item.id &&
-						<Arrow
-							data-testid={`arrow-${item.id}`}
-							className={`Icon-arrow Table__icon ${sortOrder && 'Table__icon_type_up'}`}
-						/>}
-				</td>)}
-		</tr>
-		{pageData.map((obj, index) =>
-			<tr key={index}>
-				{headerData.map((item, i) =>
-					<td key={i} className="Table__cell" onClick={() => handleTableClick(obj)}>{obj[item.id]}</td>)}
-			</tr>)}
+		<thead>
+			<tr>
+				{headerData.map((item, index) =>
+					<td
+						className="Table__cell Table__cell_header"
+						data-testid={`table-header-${item.id}`}
+						key={index}
+						onClick={() => handleTableHeaderClick(item.id, sortProp)}
+						id={item.id}
+					>
+						{item.text}
+						{sortProp === item.id &&
+							<Arrow
+								data-testid={`arrow-${item.id}`}
+								className={`Icon-arrow Table__icon ${sortOrder && 'Table__icon_type_up'}`}
+							/>}
+					</td>)}
+			</tr>
+		</thead>
+		<tbody>
+			{pageData.map((obj, index) =>
+				<tr key={index}>
+					{headerData.map((item, i) =>
+						<td
+							key={i}
+							className="Table__cell"
+							onClick={() => handleTableClick(obj)}>{obj[item.id]}
+						</td>)}
+				</tr>)}
+		</tbody>
 	</table>
 );
 

@@ -1113,6 +1113,21 @@ describe('Reducers for sorting', () => {
 });
 
 describe('Reducers for filtering', () => {
+	it('for TOGGLE_FILTER_EVENT', () => {
+		const initialState = {
+			filterOnClick: true,
+		};
+		const action = {
+			type: 'TOGGLE_FILTER_EVENT',
+		};
+
+		const newState = reducer(initialState, action);
+
+		expect(newState).toEqual({
+			filterOnClick: false,
+		});
+	});
+
 	it('for FILTER_DATA', () => {
 		const initialState = {
 			data: [{
@@ -1120,7 +1135,7 @@ describe('Reducers for filtering', () => {
 				"firstName": "Jan",
 				"lastName": "Denton",
 				"email": "JGalligan@libero.com",
-				"phone": "(391)430-6468",
+				"phone": "(391)430-6469",
 				"address": {
 					"streetAddress": "105 Elementum Ln",
 					"city": "Panama City Beach",
@@ -1204,7 +1219,7 @@ describe('Reducers for filtering', () => {
 				"firstName": "Jan",
 				"lastName": "Denton",
 				"email": "JGalligan@libero.com",
-				"phone": "(391)430-6468",
+				"phone": "(391)430-6469",
 				"address": {
 					"streetAddress": "105 Elementum Ln",
 					"city": "Panama City Beach",
@@ -1331,7 +1346,7 @@ describe('Reducers for filtering', () => {
 		};
 		const action = {
 			type: 'FILTER_DATA',
-			payload: '64'
+			payload: '69'
 		};
 
 		const newState = reducer(initialState, action);
@@ -1341,7 +1356,7 @@ describe('Reducers for filtering', () => {
 				"firstName": "Jan",
 				"lastName": "Denton",
 				"email": "JGalligan@libero.com",
-				"phone": "(391)430-6468",
+				"phone": "(391)430-6469",
 				"address": {
 					"streetAddress": "105 Elementum Ln",
 					"city": "Panama City Beach",
@@ -1425,7 +1440,7 @@ describe('Reducers for filtering', () => {
 				"firstName": "Jan",
 				"lastName": "Denton",
 				"email": "JGalligan@libero.com",
-				"phone": "(391)430-6468",
+				"phone": "(391)430-6469",
 				"address": {
 					"streetAddress": "105 Elementum Ln",
 					"city": "Panama City Beach",
@@ -1435,41 +1450,27 @@ describe('Reducers for filtering', () => {
 				"description": "magna in neque curabitur mattis lacus sed massa non id amet sapien magna in etiam pretium tortor scelerisque nec mi donec massa tellus sed et amet scelerisque ac sed nunc pulvinar donec"
 			},
 			{
-				"id": 754,
-				"firstName": "Minhajuddin",
-				"lastName": "Speth",
-				"email": "SRitchie@vitae.ly",
-				"phone": "(780)751-9848",
+				"id": 769,
+				"firstName": "Brenda",
+				"lastName": "Pereyra",
+				"email": "SRichardson@aliquam.org",
+				"phone": "(466)319-8420",
 				"address": {
-					"streetAddress": "7858 Tortor Ln",
-					"city": "E. Lansing",
-					"state": "SC",
-					"zip": "32640"
+					"streetAddress": "2802 Scelerisque Ave",
+					"city": "Detroit",
+					"state": "DC",
+					"zip": "43891"
 				},
-				"description": "rutrum placerat et vitae morbi malesuada amet nec aenean vitae massa porttitor consequat dui morbi eros lorem pulvinar amet augue aliquam lorem consequat rutrum vitae pharetra pretium morbi at placerat vitae adipiscing"
-			},
-			{
-				"id": 596,
-				"firstName": "Desmond",
-				"lastName": "Syner",
-				"email": "CCraig@pharetra.gov",
-				"phone": "(260)399-5503",
-				"address": {
-					"streetAddress": "4164 Lorem Ave",
-					"city": "Oakland",
-					"state": "AZ",
-					"zip": "15999"
-				},
-				"description": "neque eros risus nunc non dolor in sit massa lacus quis vel sit rutrum odio pulvinar odio fringilla lacus ante placerat vitae sed consectetur id massa pulvinar donec at nullam tellus magna"
+				"description": "consequat consequat amet vitae sagittis sed malesuada egestas nec rutrum dolor eget velit et velit mattis rutrum rutrum suspendisse sed velit sollicitudin tellus lacus fringilla facilisis aliquam convallis odio risus sed sed"
 			}],
 			currentPage: 1,
-			lastPage: 2,
+			lastPage: 1,
 			pageData: [{
 				"id": 339,
 				"firstName": "Jan",
 				"lastName": "Denton",
 				"email": "JGalligan@libero.com",
-				"phone": "(391)430-6468",
+				"phone": "(391)430-6469",
 				"address": {
 					"streetAddress": "105 Elementum Ln",
 					"city": "Panama City Beach",
@@ -1479,18 +1480,18 @@ describe('Reducers for filtering', () => {
 				"description": "magna in neque curabitur mattis lacus sed massa non id amet sapien magna in etiam pretium tortor scelerisque nec mi donec massa tellus sed et amet scelerisque ac sed nunc pulvinar donec"
 			},
 			{
-				"id": 754,
-				"firstName": "Minhajuddin",
-				"lastName": "Speth",
-				"email": "SRitchie@vitae.ly",
-				"phone": "(780)751-9848",
+				"id": 769,
+				"firstName": "Brenda",
+				"lastName": "Pereyra",
+				"email": "SRichardson@aliquam.org",
+				"phone": "(466)319-8420",
 				"address": {
-					"streetAddress": "7858 Tortor Ln",
-					"city": "E. Lansing",
-					"state": "SC",
-					"zip": "32640"
+					"streetAddress": "2802 Scelerisque Ave",
+					"city": "Detroit",
+					"state": "DC",
+					"zip": "43891"
 				},
-				"description": "rutrum placerat et vitae morbi malesuada amet nec aenean vitae massa porttitor consequat dui morbi eros lorem pulvinar amet augue aliquam lorem consequat rutrum vitae pharetra pretium morbi at placerat vitae adipiscing"
+				"description": "consequat consequat amet vitae sagittis sed malesuada egestas nec rutrum dolor eget velit et velit mattis rutrum rutrum suspendisse sed velit sollicitudin tellus lacus fringilla facilisis aliquam convallis odio risus sed sed"
 			}],
 			currentRecord: null,
 			sortProp: 'none',

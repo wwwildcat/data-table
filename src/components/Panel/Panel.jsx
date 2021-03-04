@@ -3,8 +3,12 @@ import { connect } from 'react-redux';
 import FlexContainer from '../FlexContainer/FlexContainer';
 import { filterData, toggleForm } from '../../store/actions';
 
+const mapStateToProps = (state) => ({
+	filterOnClick: state.filterOnClick,
+});
+
 const mapDispatchToProps = (dispatch) => ({
-    handleFilterSubmit: (value) => {
+    handleFilter: (value) => {
 		dispatch(filterData(value));
 	},
 	handleShowForm: () => {
@@ -12,7 +16,7 @@ const mapDispatchToProps = (dispatch) => ({
     }
 });
 
-const Panel = ({ handleFilterSubmit, handleShowForm }) => {
+const Panel = ({ filterOnClick, handleFilter, handleShowForm }) => {
 	const filterInput = useRef(null);
 
 	return (
@@ -20,21 +24,32 @@ const Panel = ({ handleFilterSubmit, handleShowForm }) => {
 			<FlexContainer type="panel">
 				<form className="Form" onSubmit={(e) => {
 					e.preventDefault();
-					handleFilterSubmit(filterInput.current.value);
+					if (filterOnClick) {
+						handleFilter(filterInput.current.value);
+					}
 				}}>
 					<input
 						className="Form__input"
 						data-testid="filter-input"
-						type="search"
+						onChange={(e) => {
+							if (!filterOnClick) {
+								handleFilter(e.target.value);
+							}
+						}}
+						placeholder="Filter..."
 						ref={filterInput}
-						placeholder="Введите фильтр..."
+						type="search"
 					/>
-					<button className="Button" data-testid="filter-button" type="submit">Найти</button>
+					<button className="Button" data-testid="filter-button" type="submit">
+						Apply
+					</button>
 				</form>
-				<button className="Button" data-testid="show-form-button" onClick={handleShowForm}>Добавить запись</button>
+				<button className="Button" data-testid="show-form-button" onClick={handleShowForm}>
+					New record
+				</button>
 			</FlexContainer>
 		</div>
 	)
 };
 
-export default connect(null, mapDispatchToProps)(Panel);
+export default connect(mapStateToProps, mapDispatchToProps)(Panel);

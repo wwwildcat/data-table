@@ -5,6 +5,7 @@ export const GET_CURRENT_PAGE_DATA = 'GET_CURRENT_PAGE_DATA';
 export const SET_SORT_PROP = 'SET_SORT_PROP';
 export const TOGGLE_SORT_ORDER = 'TOGGLE_SORT_ORDER';
 export const SORT_DATA = 'SORT_DATA';
+export const TOGGLE_FILTER_EVENT = 'TOGGLE_FILTER_EVENT';
 export const FILTER_DATA = 'FILTER_DATA';
 export const TOGGLE_FORM = 'TOGGLE_FORM';
 export const ADD_RECORD = 'ADD_RECORD';

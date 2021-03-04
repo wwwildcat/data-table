@@ -4,3 +4,9 @@
 	position: relative;
 	top: -3px;
 }
+
+.Header__label {
+	margin-left: 10px;
+
+	cursor: pointer;
+}

@@ -30,6 +30,10 @@ export const sortData = () => ({
 	type: 'SORT_DATA',
 });
 
+export const toggleFilterEvent = () => ({
+	type: 'TOGGLE_FILTER_EVENT',
+});
+
 export const filterData = (value) => ({
 	type: 'FILTER_DATA',
 	payload: value,

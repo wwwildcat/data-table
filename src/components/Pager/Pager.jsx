@@ -16,7 +16,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const Pager = ({ currentPage, lastPage, handlePagerChange }) => (
 	<div className="Pager" data-testid="pager">
-		<span>Страница </span>
+		<span>Page </span>
 		<input
 			className="Pager__input"
 			data-testid="pager-input"
@@ -26,7 +26,7 @@ const Pager = ({ currentPage, lastPage, handlePagerChange }) => (
 			max={lastPage}
 			value={currentPage}
 		/>
-		<span> из {lastPage} </span>
+		<span> of {lastPage} </span>
 	</div>
 );
 

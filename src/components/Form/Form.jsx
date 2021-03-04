@@ -38,7 +38,7 @@ const Form = ({ handleFormSubmit }) => {
 			newRecord.address[prop] = e.target.value;
 		}
 
-		if (existTraverse(newRecord, arg => arg === '')) {
+		if (existTraverse(newRecord, (newRecord, prop) => newRecord[prop] === '')) {
 			setButtonEnable(false);
 		} else {
 			setButtonEnable(true);
@@ -61,7 +61,9 @@ const Form = ({ handleFormSubmit }) => {
 							onChange={handleInputChange}
 						/>
 					</div>)}
-				<button disabled={!buttonEnable} className="Button" data-testid="form-button">Добавить в таблицу</button>
+				<button disabled={!buttonEnable} className="Button" data-testid="form-button">
+					Add
+				</button>
 			</FlexContainer>
 		</form>
 	)
